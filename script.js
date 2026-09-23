@@ -83,6 +83,19 @@ function displayProduction(production) {
         </div>
     `;
 }
+if (production.completedQuantity >= production.requiredQuantity) {
+    const completedList = document.getElementById("completedList");
+
+    completedList.innerHTML = `
+        <div class="production-card">
+            <h3>${production.productName}</h3>
+            <p>Required Quantity: ${production.requiredQuantity}</p>
+            <p>Completed Quantity: ${production.completedQuantity}</p>
+            <p>Status: Completed</p>
+            <p>Deadline: ${production.deadline}</p>
+        </div>
+    `;
+}
 function updateDashboard(production) {
 
     const status =
