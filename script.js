@@ -138,8 +138,18 @@ function updateDashboard(production) {
 
     document.getElementById("totalOrders").textContent = productions.length;
 
-    document.getElementById("inProgress").textContent =
-        status === "In Progress" ? 1 : 0;
+    let inProgressCount = 0;
+
+    productions.forEach(function (item) {
+        if (
+            item.completedQuantity > 0 &&
+            item.completedQuantity < item.requiredQuantity
+        ) {
+            inProgressCount++;
+        }
+    });
+
+document.getElementById("inProgress").textContent = inProgressCount;
     
     document.getElementById("completed").textContent =
     status === "Completed" ? 1 : 0;
