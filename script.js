@@ -149,10 +149,17 @@ function updateDashboard(production) {
         }
     });
 
-document.getElementById("inProgress").textContent = inProgressCount;
+    document.getElementById("inProgress").textContent = inProgressCount;
     
-    document.getElementById("completed").textContent =
-    status === "Completed" ? 1 : 0;
+    let completedCount = 0;
+
+    productions.forEach(function (item) {
+        if (item.completedQuantity >= item.requiredQuantity) {
+            completedCount++;
+        }
+    });
+
+    document.getElementById("completed").textContent = completedCount;
     
     const today = new Date();
 const deadlineDate = new Date(production.deadline);
