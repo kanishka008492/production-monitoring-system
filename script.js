@@ -118,4 +118,14 @@ function updateDashboard(production) {
     
     document.getElementById("completed").textContent =
     status === "Completed" ? 1 : 0;
+    
+    const today = new Date();
+const deadlineDate = new Date(production.deadline);
+
+const isOverdue =
+    deadlineDate < today &&
+    status !== "Completed";
+
+document.getElementById("overdue").textContent =
+    isOverdue ? 1 : 0;
 }
