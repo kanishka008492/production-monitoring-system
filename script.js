@@ -78,6 +78,16 @@ function displayProduction(production) {
                 ${production.deadline}
             </p>
             <p>
+                Days Remaining:
+                ${Math.max(
+                    0,
+                    Math.ceil(
+                        (new Date(production.deadline) - new Date()) /
+                        (1000 * 60 * 60 * 24)
+                    )
+                )}
+            </p>
+            <p>
                 Priority:
                 ${
                     new Date(production.deadline) < new Date()
