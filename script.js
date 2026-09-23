@@ -85,6 +85,11 @@ function displayProduction(production) {
                         : "Normal"
                }
             </p>
+            
+            <p>
+               Production Time:
+               ${Math.floor((new Date() - new Date(production.startTime)) / 60000)} minutes
+            </p>
 
         </div>
     `;
