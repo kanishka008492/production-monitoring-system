@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Smart Production Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Production Management System</h1>
+        <p>Smart Production Monitoring</p>
+    </header>
+
+    <main>
+
+        <section class="dashboard">
+            <h2>Dashboard</h2>
+
+            <div class="dashboard-cards">
+
+                <div class="card">
+                    <h3>Total Orders</h3>
+                    <p id="totalOrders">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>In Progress</h3>
+                    <p id="inProgress">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Completed</h3>
+                    <p id="completed">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Overdue</h3>
+                    <p id="overdue">0</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="production-section">
+
+            <h2>Create Production</h2>
+
+            <div class="form-box">
+
+                <label>Product Name</label>
+                <input type="text" id="productName" placeholder="Enter product name">
+
+                <label>Required Quantity</label>
+                <input type="number" id="requiredQuantity" placeholder="Enter quantity">
+
+                <label>Deadline</label>
+                <input type="date" id="deadline">
+
+                <button id="startProduction">
+                    Start Production
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="monitoring">
+
+            <h2>Production Monitoring</h2>
+
+            <div id="productionList">
+                <p>No production orders yet.</p>
+            </div>
+
+        </section>
+
+        <section class="completed-section">
+
+            <h2>Completed Orders</h2>
+
+            <div id="completedList">
+                <p>No completed orders yet.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
