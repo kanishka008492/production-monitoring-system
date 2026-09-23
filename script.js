@@ -96,4 +96,7 @@ function updateDashboard(production) {
 
     document.getElementById("inProgress").textContent =
         status === "In Progress" ? 1 : 0;
+    
+    document.getElementById("completed").textContent =
+    status === "Completed" ? 1 : 0;
 }
