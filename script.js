@@ -40,7 +40,7 @@ function displayProduction(production) {
 
     const productionList = document.getElementById("productionList");
 
-    productionList.innerHTML = `
+    productionList.innerHTML += `
         <div class="production-card">
 
             <h3>${production.productName}</h3>
