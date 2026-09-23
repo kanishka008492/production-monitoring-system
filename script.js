@@ -25,6 +25,7 @@ startButton.addEventListener("click", function () {
     };
 
     displayProduction(production);
+    updateDashboard(production);
 
     document.getElementById("productName").value = "";
     document.getElementById("requiredQuantity").value = "";
@@ -81,4 +82,7 @@ function displayProduction(production) {
 
         </div>
     `;
+}
+function updateDashboard(production) {
+    document.getElementById("totalOrders").textContent = 1;
 }
