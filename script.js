@@ -136,7 +136,7 @@ function updateDashboard(production) {
             ? "Completed"
             : "In Progress";
 
-    document.getElementById("totalOrders").textContent = 1;
+    document.getElementById("totalOrders").textContent = productions.length;
 
     document.getElementById("inProgress").textContent =
         status === "In Progress" ? 1 : 0;
