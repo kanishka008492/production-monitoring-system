@@ -1,3 +1,4 @@
+let productions = [];
 const startButton = document.getElementById("startProduction");
 
 startButton.addEventListener("click", function () {
