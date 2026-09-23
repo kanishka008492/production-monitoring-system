@@ -6,6 +6,9 @@ startButton.addEventListener("click", function () {
     const requiredQuantity = Number(
         document.getElementById("requiredQuantity").value
     );
+    const completedQuantity = Number(
+    document.getElementById("completedQuantity").value
+);
     const deadline = document.getElementById("deadline").value;
 
     if (productName === "" || requiredQuantity <= 0 || deadline === "") {
@@ -16,7 +19,7 @@ startButton.addEventListener("click", function () {
     const production = {
         productName: productName,
         requiredQuantity: requiredQuantity,
-        completedQuantity: 0,
+        completedQuantity: completedQuantity,
         deadline: deadline,
         startTime: new Date().toISOString()
     };
