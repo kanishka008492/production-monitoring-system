@@ -77,6 +77,14 @@ function displayProduction(production) {
                 Deadline:
                 ${production.deadline}
             </p>
+            <p>
+                Priority:
+                ${
+                    new Date(production.deadline) < new Date()
+                        ? "Urgent"
+                        : "Normal"
+               }
+            </p>
 
         </div>
     `;
