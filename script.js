@@ -65,7 +65,13 @@ function displayProduction(production) {
 
             <p>
                 Status:
-                Not Started
+                ${
+                    production.completedQuantity === 0
+                        ? "Not Started"
+                        : production.completedQuantity >= production.requiredQuantity
+                        ? "Completed"
+                        : "In Progress"
+               }
             </p>
 
             <p>
