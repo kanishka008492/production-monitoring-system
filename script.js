@@ -40,6 +40,10 @@ function displayProduction(production) {
 
     const productionList = document.getElementById("productionList");
 
+    if (productions.length === 1) {
+        productionList.innerHTML = "";
+    }
+    
     productionList.innerHTML += `
         <div class="production-card">
 
