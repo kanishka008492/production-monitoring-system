@@ -25,6 +25,8 @@ startButton.addEventListener("click", function () {
         startTime: new Date().toISOString()
     };
 
+    productions.push(production);
+
     displayProduction(production);
     updateDashboard(production);
 
