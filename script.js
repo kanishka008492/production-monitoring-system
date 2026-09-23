@@ -84,5 +84,16 @@ function displayProduction(production) {
     `;
 }
 function updateDashboard(production) {
+
+    const status =
+        production.completedQuantity === 0
+            ? "Not Started"
+            : production.completedQuantity >= production.requiredQuantity
+            ? "Completed"
+            : "In Progress";
+
     document.getElementById("totalOrders").textContent = 1;
+
+    document.getElementById("inProgress").textContent =
+        status === "In Progress" ? 1 : 0;
 }
