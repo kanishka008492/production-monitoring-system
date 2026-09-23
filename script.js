@@ -51,15 +51,17 @@ function displayProduction(production) {
                 ${production.completedQuantity}
             </p>
 
+            
             <p>
                 Remaining Quantity:
-                ${production.requiredQuantity}
+                ${production.requiredQuantity - production.completedQuantity}
             </p>
 
             <p>
                 Progress:
-                0%
+                ${(production.completedQuantity / production.requiredQuantity * 100).toFixed(0)}%
             </p>
+            
 
             <p>
                 Status:
