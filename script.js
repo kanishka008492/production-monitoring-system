@@ -52,7 +52,6 @@ function displayProduction(production) {
                 ${production.completedQuantity}
             </p>
 
-            
             <p>
                 Remaining Quantity:
                 ${production.requiredQuantity - production.completedQuantity}
@@ -62,7 +61,6 @@ function displayProduction(production) {
                 Progress:
                 ${(production.completedQuantity / production.requiredQuantity * 100).toFixed(0)}%
             </p>
-            
 
             <p>
                 Status:
@@ -72,7 +70,7 @@ function displayProduction(production) {
                         : production.completedQuantity >= production.requiredQuantity
                         ? "Completed"
                         : "In Progress"
-               }
+                }
             </p>
 
             <p>
@@ -82,19 +80,27 @@ function displayProduction(production) {
 
         </div>
     `;
-}
-if (production.completedQuantity >= production.requiredQuantity) {
-    const completedList = document.getElementById("completedList");
 
-    completedList.innerHTML = `
-        <div class="production-card">
-            <h3>${production.productName}</h3>
-            <p>Required Quantity: ${production.requiredQuantity}</p>
-            <p>Completed Quantity: ${production.completedQuantity}</p>
-            <p>Status: Completed</p>
-            <p>Deadline: ${production.deadline}</p>
-        </div>
-    `;
+    if (production.completedQuantity >= production.requiredQuantity) {
+
+        const completedList = document.getElementById("completedList");
+
+        completedList.innerHTML = `
+            <div class="production-card">
+
+                <h3>${production.productName}</h3>
+
+                <p>Required Quantity: ${production.requiredQuantity}</p>
+
+                <p>Completed Quantity: ${production.completedQuantity}</p>
+
+                <p>Status: Completed</p>
+
+                <p>Deadline: ${production.deadline}</p>
+
+            </div>
+        `;
+    }
 }
 function updateDashboard(production) {
 
