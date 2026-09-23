@@ -168,6 +168,20 @@ const isOverdue =
     deadlineDate < today &&
     status !== "Completed";
 
-document.getElementById("overdue").textContent =
-    isOverdue ? 1 : 0;
+let overdueCount = 0;
+
+productions.forEach(function (item) {
+    const itemStatus =
+        item.completedQuantity >= item.requiredQuantity
+            ? "Completed"
+            : "In Progress";
+
+    const itemDeadline = new Date(item.deadline);
+
+    if (itemDeadline < new Date() && itemStatus !== "Completed") {
+        overdueCount++;
+    }
+});
+
+document.getElementById("overdue").textContent = overdueCount;
 }
