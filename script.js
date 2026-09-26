@@ -32,6 +32,8 @@ startButton.addEventListener("click", function () {
     productions.push(production);
     localStorage.setItem("productions", JSON.stringify(productions));
 
+    loadOrderOptions();
+
     displayProduction(production);
     updateDashboard(production);
 
