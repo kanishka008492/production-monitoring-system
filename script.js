@@ -105,6 +105,10 @@ function displayProduction(production) {
                         : "Normal"
                }
             </p>
+
+            <button onclick="updateProduction('${production.productName}')">
+                Update Production
+            </button>
             
         </div>
     `;
@@ -237,3 +241,18 @@ deleteOrder.addEventListener("click", function () {
 
     location.reload();
 });
+
+
+function updateProduction(productName) {
+    const production = productions.find(item => item.productName === productName);
+    const quantity = Number(prompt("Enter completed quantity:"));
+
+    if (!production || isNaN(quantity) || quantity < 0 || quantity > production.requiredQuantity) {
+        alert("Enter a valid quantity.");
+        return;
+    }
+
+    production.completedQuantity = quantity;
+    localStorage.setItem("productions", JSON.stringify(productions));
+    location.reload();
+}
