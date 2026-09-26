@@ -100,11 +100,19 @@ function displayProduction(production) {
             <p>
                 Priority:
                 ${
-                    new Date(production.deadline) < new Date()
+                    Math.ceil(
+                        (new Date(production.deadline) - new Date()) /
+                        (1000 * 60 * 60 * 24)
+                    ) <= 3
                         ? "Urgent"
-                        : "Normal"
+                        : Math.ceil(
+                            (new Date(production.deadline) - new Date()) /
+                            (1000 * 60 * 60 * 24)
+                          ) <= 7
+                       ? "High"
+                       : "Normal"
                }
-            </p>
+           </p>
 
             <button onclick="updateProduction('${production.productName}')">
                 Update Production
