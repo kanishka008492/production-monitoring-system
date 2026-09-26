@@ -188,6 +188,10 @@ productions.forEach(function (item) {
 document.getElementById("overdue").textContent = overdueCount;
 }
 
+const productionList = document.getElementById("productionList");
+
+productionList.innerHTML = "";
+
 productions.forEach(function (item) {
     displayProduction(item);
 });
