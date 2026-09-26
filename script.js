@@ -187,3 +187,7 @@ productions.forEach(function (item) {
 
 document.getElementById("overdue").textContent = overdueCount;
 }
+
+productions.forEach(function (item) {
+    displayProduction(item);
+});
