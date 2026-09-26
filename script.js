@@ -83,10 +83,6 @@ function displayProduction(production) {
             </p>
 
             <p>
-                Deadline:
-                ${production.deadline}
-            </p>
-            <p>
                 Days Remaining:
                 ${Math.max(
                     0,
