@@ -195,3 +195,7 @@ productionList.innerHTML = "";
 productions.forEach(function (item) {
     displayProduction(item);
 });
+
+if (productions.length > 0) {
+    updateDashboard(productions[productions.length - 1]);
+}
