@@ -134,3 +134,7 @@ h2 {
 .completed-section {
     margin-top: 30px;
 }
+
+.completed-section .production-card {
+    margin-bottom: 20px;
+}
