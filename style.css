@@ -138,3 +138,7 @@ h2 {
 .completed-section .production-card {
     margin-bottom: 20px;
 }
+
+.monitoring .production-card {
+    margin-bottom: 20px;
+}
