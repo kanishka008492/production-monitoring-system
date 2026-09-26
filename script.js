@@ -2,6 +2,9 @@ let productions = [];
 const startButton = document.getElementById("startProduction");
 productions = JSON.parse(localStorage.getItem("productions")) || [];
 
+const orderSelect = document.getElementById("orderSelect");
+const deleteOrder = document.getElementById("deleteOrder");
+
 startButton.addEventListener("click", function () {
 
     const productName = document.getElementById("productName").value;
@@ -202,3 +205,33 @@ productions.forEach(function (item) {
 if (productions.length > 0) {
     updateDashboard(productions[productions.length - 1]);
 }
+
+function loadOrderOptions() {
+    orderSelect.innerHTML = '<option value="">Select an order</option>';
+
+    productions.forEach(function (item, index) {
+        const option = document.createElement("option");
+
+        option.value = index;
+        option.textContent = item.productName;
+
+        orderSelect.appendChild(option);
+    });
+}
+
+loadOrderOptions();
+
+deleteOrder.addEventListener("click", function () {
+    const selectedIndex = orderSelect.value;
+
+    if (selectedIndex === "") {
+        alert("Please select an order to delete.");
+        return;
+    }
+
+    productions.splice(selectedIndex, 1);
+
+    localStorage.setItem("productions", JSON.stringify(productions));
+
+    location.reload();
+});
