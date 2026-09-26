@@ -105,6 +105,10 @@ function displayProduction(production) {
     `;
 
     if (production.completedQuantity >= production.requiredQuantity) {
+        productionList.lastElementChild.remove();
+    }
+
+    if (production.completedQuantity >= production.requiredQuantity) {
 
         const completedList = document.getElementById("completedList");
 
