@@ -119,7 +119,6 @@ function displayProduction(production) {
 
                 <p>Status: Completed</p>
 
-                <p>Deadline: ${production.deadline}</p>
 
             </div>
         `;
