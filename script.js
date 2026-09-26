@@ -1,5 +1,6 @@
 let productions = [];
 const startButton = document.getElementById("startProduction");
+productions = JSON.parse(localStorage.getItem("productions")) || [];
 
 startButton.addEventListener("click", function () {
 
@@ -26,6 +27,7 @@ startButton.addEventListener("click", function () {
     };
 
     productions.push(production);
+    localStorage.setItem("productions", JSON.stringify(productions));
 
     displayProduction(production);
     updateDashboard(production);
