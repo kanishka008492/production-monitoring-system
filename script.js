@@ -121,7 +121,7 @@ function displayProduction(production) {
 
         const completedList = document.getElementById("completedList");
 
-        completedList.innerHTML = `
+        completedList.innerHTML += `
             <div class="production-card">
 
                 <h3>${production.productName}</h3>
