@@ -128,5 +128,9 @@ h2 {
 }
 
 .manage-orders {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
+}
+
+.completed-section {
+    margin-top: 30px;
 }
