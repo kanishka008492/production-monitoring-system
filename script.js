@@ -181,6 +181,10 @@ productions.forEach(function (item) {
 });
 
 document.getElementById("overdue").textContent = overdueCount;
+
+if (overdueCount > 0) {
+    alert("⚠️ " + overdueCount + " production order needs urgent attention.");
+}
 }
 
 const productionList = document.getElementById("productionList");
