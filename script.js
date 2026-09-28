@@ -300,3 +300,14 @@ search.oninput = function () {
         card.style.display = name.includes(text) ? "" : "none";
     });
 };
+
+const completedSearch = document.getElementById("completedSearch");
+
+completedSearch.oninput = function () {
+    const text = completedSearch.value.toLowerCase();
+
+    document.querySelectorAll("#completedList .production-card").forEach(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = name.includes(text) ? "" : "none";
+    });
+};
