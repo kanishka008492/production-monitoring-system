@@ -117,6 +117,10 @@ function displayProduction(production) {
             <button onclick="updateProduction('${production.productName}')">
                 Update Production
             </button>
+
+            <button onclick="editProduction('${production.productName}')">
+                Edit Production
+            </button>
             
         </div>
     `;
