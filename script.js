@@ -289,3 +289,16 @@ function loadHistory() {
 }
 
 loadHistory();
+
+const search = document.getElementById("searchOrder");
+const filter = document.getElementById("statusFilter");
+
+function filterOrders() {
+    const s = search.value.toLowerCase();
+    document.querySelectorAll("#productionList .production-card").forEach(c => {
+        const name = c.querySelector("h3").textContent.toLowerCase();
+        c.style.display = name.includes(s) ? "" : "none";
+    });
+}
+
+search.oninput = filterOrders;
