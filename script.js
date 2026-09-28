@@ -292,16 +292,11 @@ loadHistory();
 
 const search = document.getElementById("searchOrder");
 
-function filterOrders() {
+search.oninput = function () {
+    const text = search.value.toLowerCase();
+
     document.querySelectorAll("#productionList .production-card").forEach(card => {
         const name = card.querySelector("h3").textContent.toLowerCase();
-        const status = card.textContent;
-        card.style.display =
-            name.includes(search.value.toLowerCase()) &&
-            (filter.value === "All" || status.includes(filter.value))
-            ? "" : "none";
+        card.style.display = name.includes(text) ? "" : "none";
     });
-}
-
-search.oninput = filterOrders;
-
+};
