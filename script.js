@@ -264,3 +264,20 @@ function updateProduction(productName) {
     localStorage.setItem("productions", JSON.stringify(productions));
     location.reload();
 }
+
+function loadHistory() {
+    const list = document.getElementById("historyList");
+    const history = JSON.parse(localStorage.getItem("history")) || [];
+
+    list.innerHTML = history.length
+        ? history.map(item => `
+            <div class="production-card">
+                <h3>${item.productName}</h3>
+                <p>Completed Quantity: ${item.quantity}</p>
+                <p>Updated: ${item.date}</p>
+            </div>
+        `).join("")
+        : "<p>No production updates yet.</p>";
+}
+
+loadHistory();
