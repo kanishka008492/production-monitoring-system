@@ -303,11 +303,11 @@ search.oninput = function () {
 
 const completedSearch = document.getElementById("completedSearch");
 
-completedSearch.oninput = function () {
-    const text = completedSearch.value.toLowerCase();
+completedSearch.addEventListener("input", function() {
+    const text = this.value.toLowerCase();
 
     document.querySelectorAll("#completedList .production-card").forEach(card => {
-        const name = card.querySelector("h3").textContent.toLowerCase();
-        card.style.display = name.includes(text) ? "" : "none";
+        card.style.display =
+            card.innerText.toLowerCase().includes(text) ? "" : "none";
     });
-};
+});
