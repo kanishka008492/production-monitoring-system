@@ -252,19 +252,27 @@ deleteOrder.addEventListener("click", function () {
 
 
 function updateProduction(productName) {
-    const production = productions.find(item => item.productName === productName);
-    const quantity = Number(prompt("Enter completed quantity:"));
+    const p = productions.find(x => x.productName === productName);
+    const q = Number(prompt("Enter completed quantity:"));
 
-    if (!production || isNaN(quantity) || quantity < 0 || quantity > production.requiredQuantity) {
+    if (!p || q < 0 || q > p.requiredQuantity) {
         alert("Enter a valid quantity.");
         return;
     }
 
-    production.completedQuantity = quantity;
+    p.completedQuantity = q;
+
+    let history = JSON.parse(localStorage.getItem("history")) || [];
+    history.push({
+        productName: productName,
+        quantity: q,
+        date: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("history", JSON.stringify(history));
     localStorage.setItem("productions", JSON.stringify(productions));
     location.reload();
 }
-
 function loadHistory() {
     const list = document.getElementById("historyList");
     const history = JSON.parse(localStorage.getItem("history")) || [];
