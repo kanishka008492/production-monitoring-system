@@ -291,7 +291,6 @@ function loadHistory() {
 loadHistory();
 
 const search = document.getElementById("searchOrder");
-const filter = document.getElementById("statusFilter");
 
 function filterOrders() {
     document.querySelectorAll("#productionList .production-card").forEach(card => {
@@ -305,4 +304,4 @@ function filterOrders() {
 }
 
 search.oninput = filterOrders;
-filter.onchange = filterOrders;
+
