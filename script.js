@@ -294,10 +294,15 @@ const search = document.getElementById("searchOrder");
 const filter = document.getElementById("statusFilter");
 
 function filterOrders() {
-    const s = search.value.toLowerCase();
-    document.querySelectorAll("#productionList .production-card").forEach(c => {
-        c.style.display = c.querySelector("h3").textContent.toLowerCase().includes(s) ? "" : "none";
+    document.querySelectorAll("#productionList .production-card").forEach(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase();
+        const status = card.textContent;
+        card.style.display =
+            name.includes(search.value.toLowerCase()) &&
+            (filter.value === "All" || status.includes(filter.value))
+            ? "" : "none";
     });
 }
 
 search.oninput = filterOrders;
+filter.onchange = filterOrders;
