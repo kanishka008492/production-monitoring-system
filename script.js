@@ -315,3 +315,12 @@ completedSearch.addEventListener("input", function() {
             card.innerText.toLowerCase().includes(text) ? "" : "none";
     });
 });
+
+function editProduction(name) {
+    const p = productions.find(x => x.productName === name);
+    p.productName = prompt("New name:", p.productName);
+    p.requiredQuantity = Number(prompt("New quantity:", p.requiredQuantity));
+    p.deadline = prompt("New deadline:", p.deadline);
+    localStorage.setItem("productions", JSON.stringify(productions));
+    location.reload();
+}
