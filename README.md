@@ -22,6 +22,10 @@ A web-based Production Management System designed to monitor production orders, 
 * Update completed production quantity
 * Automatically move completed orders to **Completed Orders**
 * Delete existing production orders
+* * Search production orders
+* Search completed orders
+* Edit production order details
+* Maintain production update history
 * Dashboard with:
 
   * Total Orders
@@ -103,6 +107,14 @@ This allows the saved production orders to remain available even after the websi
 ## Project Objective
 
 The main objective of this project is to create a simple and practical digital production monitoring system that reduces manual calculation and provides automatic production status, progress, priority, and deadline monitoring.
+
+## Technical Implementation
+
+The system uses JavaScript functions to handle production creation, updates, editing, deletion, search, dashboard calculations, and history management.
+
+Production data is stored in LocalStorage using JSON format. Each production record contains the product name, required quantity, completed quantity, deadline, and start time.
+
+The system validates basic production inputs before creating an order. Automatic calculations are used for progress, remaining quantity, status, priority, and overdue detection.
 
 ## Future Scope
 
