@@ -247,11 +247,16 @@ deleteOrder.addEventListener("click", function () {
         return;
     }
 
-    productions.splice(selectedIndex, 1);
+   const name = productions[selectedIndex].productName;
+   productions.splice(selectedIndex, 1);
 
-    localStorage.setItem("productions", JSON.stringify(productions));
+   let history = JSON.parse(localStorage.getItem("history")) || [];
+   history = history.filter(x => x.productName !== name);
 
-    location.reload();
+   localStorage.setItem("productions", JSON.stringify(productions));
+   localStorage.setItem("history", JSON.stringify(history));
+   location.reload();
+    
 });
 
 
