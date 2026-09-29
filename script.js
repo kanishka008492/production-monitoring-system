@@ -225,7 +225,7 @@ if (productions.length > 0) {
 }
 
 function loadOrderOptions() {
-orderSelect.innerHTML = '';
+orderSelect.innerHTML = '<option value="">Select an order</option>';
 
     productions.forEach(function (item, index) {
         const option = document.createElement("option");
