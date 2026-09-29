@@ -250,11 +250,9 @@ deleteOrder.addEventListener("click", function () {
    const name = productions[selectedIndex].productName;
    productions.splice(selectedIndex, 1);
 
-   let history = JSON.parse(localStorage.getItem("history")) || [];
-   history = history.filter(x => x.productName !== name);
-
+   localStorage.removeItem("history");
    localStorage.setItem("productions", JSON.stringify(productions));
-   localStorage.setItem("history", JSON.stringify(history));
+    
    location.reload();
     
 });
