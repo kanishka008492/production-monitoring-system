@@ -43,38 +43,44 @@ startButton.addEventListener("click", function () {
 });
 
 
+
 function displayProduction(production) {
 
     const productionList = document.getElementById("productionList");
 
+    const progress = Math.min(
+        100,
+        Math.max(
+            0,
+            (production.completedQuantity / production.requiredQuantity) * 100
+        )
+    ).toFixed(0);
+
     if (productions.length === 1) {
         productionList.innerHTML = "";
     }
-    
+
     productionList.innerHTML += `
         <div class="production-card">
 
             <h3>${production.productName}</h3>
 
-            <p>
-                Required Quantity:
-                ${production.requiredQuantity}
-            </p>
+            <p>Required Quantity: ${production.requiredQuantity}</p>
 
-            <p>
-                Completed Quantity:
-                ${production.completedQuantity}
-            </p>
+            <p>Completed Quantity: ${production.completedQuantity}</p>
 
-            <p>
-                Remaining Quantity:
+            <p>Remaining Quantity:
                 ${production.requiredQuantity - production.completedQuantity}
             </p>
 
-            <p>
-                Progress:
-                ${(production.completedQuantity / production.requiredQuantity * 100).toFixed(0)}%
-            </p>
+            <div class="progress-info">
+                <span>Production Progress</span>
+                <span>${progress}%</span>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" style="width: ${progress}%"></div>
+            </div>
 
             <p>
                 Status:
@@ -97,6 +103,7 @@ function displayProduction(production) {
                     )
                 )}
             </p>
+
             <p>
                 Priority:
                 ${
@@ -109,10 +116,10 @@ function displayProduction(production) {
                             (new Date(production.deadline) - new Date()) /
                             (1000 * 60 * 60 * 24)
                           ) <= 7
-                       ? "High"
-                       : "Normal"
-               }
-           </p>
+                        ? "High"
+                        : "Normal"
+                }
+            </p>
 
             <button onclick="updateProduction('${production.productName}')">
                 Update Production
@@ -121,15 +128,13 @@ function displayProduction(production) {
             <button onclick="editProduction('${production.productName}')">
                 Edit Production
             </button>
-            
+
         </div>
     `;
 
     if (production.completedQuantity >= production.requiredQuantity) {
-        productionList.lastElementChild.remove();
-    }
 
-    if (production.completedQuantity >= production.requiredQuantity) {
+        productionList.lastElementChild.remove();
 
         const completedList = document.getElementById("completedList");
 
@@ -142,13 +147,22 @@ function displayProduction(production) {
 
                 <p>Completed Quantity: ${production.completedQuantity}</p>
 
-                <p>Status: Completed</p>
+                <div class="progress-info">
+                    <span>Production Progress</span>
+                    <span>100%</span>
+                </div>
 
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+
+                <p>Status: Completed</p>
 
             </div>
         `;
     }
 }
+
 function updateDashboard(production) {
 
     const status =
